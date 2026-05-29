@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web for Love - To Vanessa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe4e9 50%, #ffd4dd 100%);
+            background-attachment: fixed;
+            color: #5a3a3a;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Heart background animation */
+        body::before {
+            content: "❤️ 💕 ❤️ 💖 ❤️ 💗 ❤️ 💝 ❤️";
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            font-size: 15rem;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(20px) rotate(10deg); }
+        }
+
+        header {
+            background: linear-gradient(to right, #d4617a, #e8a0b0, #d4617a);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(212, 97, 122, 0.3);
+            border-bottom: 3px solid #c64960;
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: #fff;
+            transform: scale(1.05);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        main > h1 {
+            text-align: center;
+            color: #c64960;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(198, 73, 96, 0.2);
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(212, 97, 122, 0.2);
+            border-left: 5px solid #e8a0b0;
+            backdrop-filter: blur(10px);
+        }
+
+        section h2 {
+            color: #c64960;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        section p {
+            color: #5a3a3a;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* Form Styling */
+        .form-section {
+            background: rgba(232, 160, 176, 0.15);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-section p {
+            margin-bottom: 1rem;
+            color: #5a3a3a;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            color: #c64960;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 0.5rem;
+            cursor: pointer;
+            accent-color: #d4617a;
+        }
+
+        /* Media Gallery */
+        .media-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        video, img {
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(212, 97, 122, 0.3);
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #e8a0b0;
+            transition: transform 0.3s ease;
+        }
+
+        video:hover, img:hover {
+            transform: scale(1.02);
+        }
+
+        figcaption {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        figcaption h3 {
+            color: #c64960;
+            margin-bottom: 1rem;
+        }
+
+        figcaption img {
+            max-width: 500px;
+            margin: 1rem auto;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #d4617a, #e8a0b0, #d4617a);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 15px rgba(212, 97, 122, 0.3);
+            border-top: 3px solid #c64960;
+        }
+
+        footer h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-direction: column;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            figcaption img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            video {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>❤️ TO VANESSA ❤️</h1>
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#declaration">Declaration</a></li>
+                <li><a href="#memories">Memories</a></li>
+                <li><a href="#secret">Secret</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>A Web for My Girl</h1>
+
+        <!-- Confirmation Section -->
+        <section class="form-section">
+            <h2 style="text-align: left; margin-bottom: 1.5rem;">Welcome 💕</h2>
+            
+            <div class="form-group">
+                <p>Are you ready to read and follow this page? If you are willing, confirm here:</p>
+                <label>
+                    <input type="radio" name="ready" value="yes" checked required> Yes
+                </label>
+                <label>
+                    <input type="radio" name="ready" value="no" required> No
+                </label>
+            </div>
+
+            <div class="form-group">
+                <p>Please agree to the terms and policy of this page. Type yes to confirm that you will agree, submit every form provided, and participate in the page activities.</p>
+                <label>Do you agree to the terms and policy?</label><br><br>
+                <label>
+                    <input type="checkbox" id="agreement" name="agree" required> I Agree
+                </label>
+            </div>
+            <p style="text-align: center; color: #d4617a; font-weight: bold; margin-top: 1rem;">Confirm to proceed! ✨</p>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>
+                Hello, my love ❤️. I hope you are well. This is a special website for you—no viruses or malware attached, just me, attached to you 😁🙈.
+            </p>
+            <p>
+                Loving you is something I have never regretted. You bring me joy, happiness, peace, and comfort; I love the way you care for yourself and for me 😘. I have always been there for you, and I will continue to be, no matter what happens. I love you more than anything in this world 😘.
+            </p>
+            <p>
+                I pray that things will work out for you and for me ❤️😘. I hope you will enjoy this page and everything it contains 😘.
+            </p>
+            <p>
+                Babe, I love you so much ❤️😘. I love you more than you know — I am deeply in love with you. Every day I smile because of you. Sometimes I'm angry, but you calm me down; sometimes I'm sad, but talking to you always lifts my mood 😊😍💍
+            </p>
+            <p>
+                You are special to me in so many ways — the way you speak to me, care for me, love me, and support me. You make me laugh, you dry my tears, and you make my life brighter. I love you so much ❤️😘
+            </p>
+        </section>
+
+        <!-- Declaration Section -->
+        <section id="declaration">
+            <h2>My Declaration</h2>
+            <p>1. I will always be there for you, no matter what happens.</p>
+            <p>2. I will always love you, no matter what happens.</p>
+            <p>3. I will always care about you, no matter what happens.</p>
+            <p>4. I will always support you, no matter what happens.</p>
+            <p>5. I will always respect you, no matter what happens.</p>
+            <p>6. I will always be honest with you, no matter what happens.</p>
+            <p>7. I will always be faithful to you, no matter what happens.</p>
+            <p>8. I will always be loyal to you, no matter what happens.</p>
+            <p>9. I will always be patient with you, no matter what happens.</p>
+            <p>10. I will always be understanding with you, no matter what happens.</p>
+            <p>11. I will always be forgiving with you, no matter what happens.</p>
+            <p>12. I will always be grateful for you, no matter what happens.</p>
+            <p>13. I will always be proud of you, no matter what happens.</p>
+            <p>14. I will always be happy for you, no matter what happens.</p>
+            <p>15. I will always be there for you, no matter what happens.</p>
+            <p>16. I will always love you, no matter what happens.</p>
+            <p>17. I will be grateful for everything you do. The list is long, so allow me to stop at that point.</p>
+        </section>
+
+        <!-- Memories Section -->
+        <section id="memories">
+            <h2>Memories 📸</h2>
+
+            <div class="media-container">
+                <div>
+                    <p style="text-align: center; color: #c64960; font-weight: bold;">The day we kissed 💋</p>
+                    <video width="500" height="500" controls style="max-width: 100%;">
+                        <source src="images/day we kissed.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <figcaption>
+                    <h3>My Favourite Picture</h3>
+                    <img src="images/my fav pic.jpg" alt="a special moment">
+                </figcaption>
+
+                <figcaption>
+                    <h3>A Beautiful Moment</h3>
+                    <img src="images/my favourite.jpg" alt="memories together" style="width: 500px; height: 500px; object-fit: cover;">
+                </figcaption>
+
+                <figcaption>
+                    <h3>When We Got Caught 😂</h3>
+                    <img src="images/pda.jpg" alt="moments together" style="width: 500px; height: 500px; object-fit: cover;">
+                </figcaption>
+
+                <figcaption>
+                    <h3>With Our Friends 👯</h3>
+                    <img src="images/zimeshika.jpg" alt="group memories" style="width: 500px; height: 500px; object-fit: cover;">
+                </figcaption>
+
+                <div>
+                    <p style="text-align: center; color: #c64960; font-weight: bold;">The Day You Made Me Laugh 😁😂</p>
+                    <video width="500" height="500" controls style="max-width: 100%;">
+                        <source src="images/suit.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; color: #d4617a; font-weight: bold;">I have many more memories, but this is just a small part of it ✨</p>
+        </section>
+
+        <!-- Secret Section -->
+        <section id="secret">
+            <h2>Secret 🤫</h2>
+            <p>
+                On your birthday, it was the day I had a huge crush on you. The time we were in Bossy, actually from that time is when I started planning how to win your heart 🙈😍.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <h2>THANK YOU FOR READING ❤️</h2>
+        <p>BY YOURS TRULY/LOVING: <strong>DANIEL KAMAU GUCHU</strong></p>
+    </footer>
+</body>
+</html>
